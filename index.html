@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas de codificação e responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Café Raízes</title>
+    <meta name="description" content="Conheça a história, os valores, o cardápio e os diferenciais da Café Raízes, cafeteria artesanal brasileira.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- HEADER: identidade da marca + navegação principal do site -->
+    <header>
+        <div class="header-conteudo">
+            <h1>Café Raízes</h1>
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#inicio">Home</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO: imagem de destaque, primeira coisa que o visitante vê -->
+    <div class="hero" id="inicio">
+        <img src="images/img/00.webp"
+             alt="Balcão de atendimento da cafeteria Café Raízes, com clientes sendo servidos e prateleiras de grãos de café ao fundo">
+    </div>
+
+    <!-- MAIN: conteúdo central e único da página (institucional) -->
+    <main>
+
+        <!-- Seção 1: história da cafeteria -->
+        <section aria-labelledby="titulo-historia">
+            <h2 id="titulo-historia">Nossa História</h2>
+            <div class="historia-conteudo">
+                <div>
+                    <p>
+                        A Café Raízes nasceu em 2015, na Serra da Mantiqueira, do sonho de dois
+                        irmãos apaixonados por café que decidiram trocar a vida na cidade grande
+                        por um pequeno sítio cercado de plantações centenárias. O que começou como
+                        uma torra caseira para amigos e vizinhos se transformou, poucos anos depois,
+                        na cafeteria artesanal que você conhece hoje.
+                    </p>
+                    <p>
+                        Desde o início, nosso propósito foi resgatar o valor do café brasileiro
+                        cultivado por pequenos produtores, torrado em lotes pequenos e servido
+                        fresco, sem pressa. Cada grão que passa pelo nosso balcão tem origem
+                        rastreável e uma história para contar.
+                    </p>
+                    <p>
+                        Hoje, além da torrefação própria, mantemos parceria direta com mais de
+                        doze famílias produtoras em Minas Gerais e no Espírito Santo, garantindo
+                        preço justo na origem e qualidade constante na xícara.
+                    </p>
+               
+        </section>
+
+        <!-- Seção 2: valores e diferenciais -->
+        <section aria-labelledby="titulo-valores">
+            <h2 id="titulo-valores">Nossos Valores e Diferenciais</h2>
+            <ul class="valores-grid">
+                <li><strong>Origem rastreável:</strong> todo café vendido tem produtor, fazenda e safra identificados.</li>
+                <li><strong>Torra artesanal em pequenos lotes:</strong> torrado semanalmente, nunca em grande escala industrial.</li>
+                <li><strong>Comércio justo:</strong> pagamos acima do preço de mercado diretamente aos produtores parceiros.</li>
+                <li><strong>Sustentabilidade:</strong> embalagens biodegradáveis e reaproveitamento da borra de café para compostagem.</li>
+            </ul>
+        </section>
+
+        <!-- Seção 3: cardápio com produtos -->
+        <!-- Cada .produto-card tem atributos data-* com as infos do produto.
+             O JS lê esses atributos quando o card é clicado e monta o modal. -->
+        <section aria-labelledby="titulo-cardapio" id="cardapio">
+            <h2 id="titulo-cardapio">Nosso Cardápio</h2>
+            <p class="cardapio-dica">Clique em um produto para ver mais detalhes.</p>
+            <div class="cardapio-grid">
+
+                <article class="produto-card"
+                          tabindex="0"
+                          data-nome="Espresso Tradicional"
+                          data-descricao="Blend exclusivo de grãos arábica torrados artesanalmente, extraído na hora. Um espresso encorpado, com notas de caramelo e final levemente achocolatado."
+                          data-preco="R$ 7,50"
+                          data-imagem="images/img/P02442-P02472.jpg">
+                    <img src="images/img/P02442-P02472.jpg"
+                         alt="Xícara de espresso Café Raízes, com crema dourada, servida sobre pires de cerâmica">
+                    <div class="produto-info">
+                        <h3>Espresso Tradicional</h3>
+                        <p>Blend exclusivo de grãos arábica torrados artesanalmente, extraído na hora.</p>
+                        <span class="produto-preco">R$ 7,50</span>
+                    </div>
+                </article>
+
+                <article class="produto-card"
+                          tabindex="0"
+                          data-nome="Cappuccino Artesanal"
+                          data-descricao="Espresso encorpado com leite vaporizado e uma fina camada de espuma cremosa, finalizado com um toque de canela em pó."
+                          data-preco="R$ 12,00"
+                          data-imagem="images/img/images.jfif">
+                    <img src="images/img/images.jfif"
+                         alt="Cappuccino cremoso com desenho em latte art servido em xícara branca"
+                         loading="lazy">
+                    <div class="produto-info">
+                        <h3>Cappuccino Artesanal</h3>
+                        <p>Espresso encorpado com leite vaporizado e uma fina camada de espuma cremosa.</p>
+                        <span class="produto-preco">R$ 12,00</span>
+                    </div>
+                </article>
+
+                <article class="produto-card"
+                          tabindex="0"
+                          data-nome="Cold Brew da Casa"
+                          data-descricao="Café extraído a frio por 18 horas, suave e naturalmente adocicado, servido bem gelado com cubos de gelo grandes que derretem devagar."
+                          data-preco="R$ 14,00"
+                          data-imagem="images/img/3.jpg">
+                    <img src="images/img/3.jpg"
+                         alt="Copo de cold brew gelado com cubos de gelo e um canudo de papel"
+                         loading="lazy">
+                    <div class="produto-info">
+                        <h3>Cold Brew da Casa</h3>
+                        <p>Café extraído a frio por 18 horas, suave e naturalmente adocicado.</p>
+                        <span class="produto-preco">R$ 14,00</span>
+                    </div>
+                </article>
+
+                <article class="produto-card"
+                          tabindex="0"
+                          data-nome="Croissant Amanteigado"
+                          data-descricao="Produzido diariamente pela nossa padaria parceira, folhado e crocante por fora, macio por dentro. Ótimo acompanhamento para qualquer café do cardápio."
+                          data-preco="R$ 9,90"
+                          data-imagem="images/img/4.jfif">
+                    <img src="images/img/4.jfif"
+                         alt="Croissant artesanal dourado servido em prato de madeira ao lado de uma xícara de café"
+                         loading="lazy">
+                    <div class="produto-info">
+                        <h3>Croissant Amanteigado</h3>
+                        <p>Produzido diariamente pela nossa padaria parceira, folhado e crocante.</p>
+                        <span class="produto-preco">R$ 9,90</span>
+                    </div>
+                </article>
+
+                <article class="produto-card"
+                          tabindex="0"
+                          data-nome="Bolo de Cenoura com Chocolate"
+                          data-descricao="Receita da casa, fofinho por dentro e com cobertura de chocolate meio amargo derretido na hora. Servido em fatia generosa."
+                          data-preco="R$ 11,50"
+                          data-imagem="images/img/5.jfif">
+                    <img src="images/img/5.jfif"
+                         alt="Fatia de bolo de cenoura com cobertura de chocolate sobre prato branco"
+                         loading="lazy">
+                    <div class="produto-info">
+                        <h3>Bolo de Cenoura com Chocolate</h3>
+                        <p>Receita da casa, fofinho por dentro e com cobertura de chocolate meio amargo.</p>
+                        <span class="produto-preco">R$ 11,50</span>
+                    </div>
+                </article>
+
+                <article class="produto-card"
+                          tabindex="0"
+                          data-nome="Filtrado Pour Over"
+                          data-descricao="Preparo lento e manual que realça as notas frutadas do grão selecionado do dia. Cada xícara é feita individualmente, na hora do pedido."
+                          data-preco="R$ 15,00"
+                          data-imagem="images/img/6.jfif">
+                    <img src="images/img/6.jfif"
+                         alt="Método pour-over de café filtrado sendo preparado manualmente sobre um vidro"
+                         loading="lazy">
+                    <div class="produto-info">
+                        <h3>Filtrado Pour Over</h3>
+                        <p>Preparo lento e manual que realça as notas frutadas do grão selecionado do dia.</p>
+                        <span class="produto-preco">R$ 15,00</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Seção 4: contato -->
+        <section aria-labelledby="titulo-contato" id="contato">
+            <h2 id="titulo-contato">Contato</h2>
+            <p><strong>Endereço:</strong> Rua das Palmeiras, 245 — Bairro Jardim das Flores</p>
+            <p><strong>Telefone:</strong> (19) 3456-7890</p>
+            <p><strong>E-mail:</strong> contato@cafraizes.com.br</p>
+            <p><strong>Horário:</strong> Terça a domingo, das 8h às 19h</p>
+        </section>
+
+    </main>
+
+    <!-- ASIDE: conteúdo complementar, relacionado mas não essencial ao fluxo principal -->
+    <aside aria-label="Depoimento de cliente">
+        <p>
+            "Descobri a Café Raízes por acaso e virou parte da minha rotina. Dá pra
+            sentir a diferença de um café feito com carinho, direto da roça até a
+            xícara." — Marina Costa, cliente desde 2019.
+        </p>
+    </aside>
+
+    <!-- FOOTER: informações institucionais fixas, repetidas em todas as páginas -->
+    <footer>
+        <p>&copy; 2026 Café Raízes. Todos os direitos reservados.</p>
+        <p><a href="politica-privacidade.html">Política de Privacidade</a></p>
+    </footer>
+
+    <!-- MODAL: janela de detalhes do produto, fica escondida até um card ser clicado -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+            <button class="modal-fechar" id="modalFechar" aria-label="Fechar detalhes do produto">&times;</button>
+            <img id="modalImagem" src="" alt="">
+            <div class="modal-conteudo">
+                <h3 id="modalTitulo"></h3>
+                <p id="modalDescricao"></p>
+                <span class="produto-preco" id="modalPreco"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

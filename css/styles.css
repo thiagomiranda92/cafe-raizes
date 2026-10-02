@@ -1,0 +1,315 @@
+/* ==========================================================
+   RESET BÁSICO E VARIÁVEIS
+   ========================================================== */
+:root {
+    --marrom-escuro: #4b2e2b;
+    --marrom-claro: #7a4a37;
+    --creme: #f3e0d0;
+    --fundo: #faf6f1;
+    --texto: #3b2a20;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+/* ==========================================================
+   HEADER E NAVEGAÇÃO
+   position: sticky faz o header acompanhar o scroll, ficando
+   sempre visível no topo da tela.
+   ========================================================== */
+header {
+    background-color: var(--marrom-escuro);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.header-conteudo {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+nav a {
+    color: var(--creme);
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+}
+
+/* ==========================================================
+   HERO (imagem de destaque logo abaixo do header)
+   ========================================================== */
+.hero {
+    width: 100%;
+    max-height: 420px;
+    overflow: hidden;
+    scroll-margin-top: 90px; /* compensa a altura do header sticky ao rolar até aqui */
+}
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* ==========================================================
+   LAYOUT GERAL DO CONTEÚDO
+   ========================================================== */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 90px; /* compensa a altura do header sticky ao rolar até a seção */
+}
+section h2 {
+    color: var(--marrom-escuro);
+    border-bottom: 3px solid var(--creme);
+    padding-bottom: 0.4rem;
+}
+
+/* Bloco de texto + imagem lado a lado (história) */
+.historia-conteudo {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* ==========================================================
+   GRID DE VALORES
+   ========================================================== */
+.valores-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+}
+.valores-grid li {
+    background-color: #fff;
+    border: 1px solid var(--creme);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+}
+
+/* ==========================================================
+   CARDÁPIO — cards de produtos clicáveis
+   ========================================================== */
+.cardapio-dica {
+    color: var(--marrom-claro);
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.2rem;
+}
+.cardapio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+.produto-card {
+    background-color: #fff;
+    border: 1px solid var(--creme);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; /* indica que o card é clicável */
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.produto-card:hover,
+.produto-card:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(75, 46, 43, 0.18);
+    outline: none;
+}
+.produto-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 0;
+}
+.produto-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.produto-info h3 {
+    margin: 0 0 0.3rem 0;
+    color: var(--marrom-escuro);
+}
+.produto-info p {
+    margin: 0 0 0.8rem 0;
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+.produto-preco {
+    font-weight: bold;
+    color: var(--marrom-claro);
+    font-size: 1.1rem;
+}
+
+/* ==========================================================
+   MODAL DE DETALHES DO PRODUTO
+   Fica escondido (display: none) até receber a classe "aberto".
+   ========================================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0; /* atalho para top/right/bottom/left: 0 */
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.modal-overlay.aberto {
+    display: flex;
+}
+.modal-caixa {
+    background-color: #fff;
+    border-radius: 12px;
+    max-width: 480px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalAparecer 0.2s ease;
+}
+@keyframes modalAparecer {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+.modal-caixa img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+.modal-conteudo {
+    padding: 1.2rem 1.5rem 1.5rem;
+}
+.modal-conteudo h3 {
+    margin: 0 0 0.6rem 0;
+    color: var(--marrom-escuro);
+    font-size: 1.4rem;
+}
+.modal-conteudo p {
+    margin: 0 0 1rem 0;
+}
+.modal-fechar {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1;
+}
+.modal-fechar:hover,
+.modal-fechar:focus {
+    background-color: var(--marrom-escuro);
+}
+
+/* ==========================================================
+   ASIDE — depoimento
+   ========================================================== */
+aside {
+    background-color: var(--creme);
+    border-left: 4px solid var(--marrom-escuro);
+    padding: 1rem 1.5rem;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+footer {
+    background-color: var(--marrom-escuro);
+    color: var(--creme);
+    text-align: center;
+    padding: 1.5rem;
+}
+footer a {
+    color: var(--creme);
+}
+
+/* ==========================================================
+   RESPONSIVIDADE — MEDIA QUERIES
+   ========================================================== */
+@media (max-width: 768px) {
+    .header-conteudo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav ul {
+        gap: 1rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .historia-conteudo {
+        grid-template-columns: 1fr;
+    }
+    .hero {
+        max-height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    main {
+        padding: 1rem;
+    }
+    .produto-card img {
+        height: 150px;
+    }
+}
